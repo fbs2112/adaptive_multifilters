@@ -1,0 +1,10 @@
+results1: resultados para L= 0 e threhold = 2 gammaLin; 
+
+results2: resultados para L= 1 e threhold = 2 gammaLin; 
+
+results3: resultados para L= 0:4 e threhold = 1:0.5:4 gammaLin; 
+
+results4: resultados para L=0 e threhold = 1:0.5:4 calculando a matriz G sempre;
+
+results5: mesma coisa que results3 com bugs na matriz G corrigidos;
+
