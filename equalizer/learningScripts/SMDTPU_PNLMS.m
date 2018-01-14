@@ -11,7 +11,7 @@ load paramEq.mat;
 
 numberOfSymbols = 2^numberOfBits;
 
-maxIt = 100;
+maxIt = 50;
 
 barGammaLin = 4*sqrt(5*noisePower);
 barGammaNonLin = (1:0.5:4)*barGammaLin;
@@ -107,7 +107,7 @@ for NIndex = 5:length(N)
                 for k = (adapFiltLength(NIndex) + max(delayVector2)):globalLength
                     
                     if k >= changingIteration
-                        if feedforwardLength(FFIndex) > 2
+                        if N(NIndex) > 2
                             delayVector = delayVector2(2);
                         else
                             delayVector = delayVector2(2) + 2;
@@ -170,7 +170,9 @@ for NIndex = 5:length(N)
                     end
 
 
-                    w(:,k+1) = 2*(lambdaUp*w1(:,k+1)+ (1-lambdaUp)*w2(:,k+1));
+                    w(:,k+1) = (lambdaUp*w1(:,k+1)+ (1-lambdaUp)*w2(:,k+1));
+                    w1(:,k+1) = w(:,k+1);
+                    w2(:,k+1) = w(:,k+1);
 
                 end
                 wIndex(:,:,index) = conj(w(:,1:globalLength));

@@ -4,9 +4,9 @@ clear;
 clc;
 close all;
 
-addpath(['..' filesep '..' filesep 'simParameters' filesep]);
+addpath(['..' filesep 'simParameters' filesep]);
 
-load paramDFE_FF_FB.mat;
+load paramDFE_FF.mat;
 
 numberOfSymbols = 2^numberOfBits;
 lambdaUp = 0.5;
@@ -44,7 +44,7 @@ for FFIndex = 5:length(feedforwardLength)
             globalLength = maxRuns + adapFiltLength(FFIndex,FBIndex) + max(delayVector2) - 1;
             
            
-            barGammaNonLinIndex
+            
             for barGammaNonLinIndex = 1:length(barGammaNonLin)
                 
                 wIndex = zeros(adapFiltLength(FFIndex,FBIndex),globalLength,maxIt);
@@ -194,7 +194,9 @@ for FFIndex = 5:length(feedforwardLength)
                         end
                         
                         
-                        w(:,k+1) = 2*(lambdaUp*w1(:,k+1)+ (1-lambdaUp)*w2(:,k+1));
+                        w(:,k+1) = (lambdaUp*w1(:,k+1)+ (1-lambdaUp)*w2(:,k+1));
+                        w1(:,k+1) = w(:,k+1);
+                        w2(:,k+1) = w(:,k+1);
                         
                     end
                     wIndex(:,:,index) = conj(w(:,1:globalLength));
@@ -215,7 +217,7 @@ for FFIndex = 5:length(feedforwardLength)
     end
 end
 
-save(['.' filesep 'results' filesep 'resultsTestDFE_FF_FB.mat'],'w4','e4','meanCountLin2','meanCountNonLin2');
+save(['.' filesep 'results' filesep 'resultsTestDFE_FF.mat'],'w4','e4','meanCountLin2','meanCountNonLin2');
 
-rmpath(['..' filesep '..' filesep 'simParameters' filesep]);
+rmpath(['..' filesep 'simParameters' filesep]);
 
