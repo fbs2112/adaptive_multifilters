@@ -9,7 +9,6 @@ addpath(['..' filesep 'simParameters' filesep]);
 load paramDFE_FB.mat;
 
 numberOfSymbols = 2^numberOfBits;
-lambdaUp = 0.5;
 
 barGammaLin = 4*sqrt(5*noisePower);
 barGammaNonLin = (1:0.5:4)*barGammaLin;
@@ -19,11 +18,9 @@ w4 = cell(length(feedforwardLength),length(feedbackLength));
 meanCountLin2 = cell(length(feedforwardLength),length(feedbackLength));
 meanCountNonLin2 = cell(length(feedforwardLength),length(feedbackLength));
 
-maxIt = 100;
-
-for FFIndex = 5:length(feedforwardLength)
+for FFIndex = 1:length(feedforwardLength)
     FFIndex
-    for FBIndex = 5:length(feedbackLength)
+    for FBIndex = 1:length(feedbackLength)
         FBIndex
         %         delayVector = 1:feedforwardLength+length(h);%adapFiltLength + 10;
         

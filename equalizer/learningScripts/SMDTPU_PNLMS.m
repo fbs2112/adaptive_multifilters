@@ -11,20 +11,15 @@ load paramEq.mat;
 
 numberOfSymbols = 2^numberOfBits;
 
-maxIt = 50;
-
 barGammaLin = 4*sqrt(5*noisePower);
 barGammaNonLin = (1:0.5:4)*barGammaLin;
-
-gamma = 1e-8;
-lambdaUp = 0.5;
 
 e4 = cell(length(N),1);
 w4 = cell(length(N),1);
 meanCountLin2 = cell(length(N),1);
 meanCountNonLin2 = cell(length(N),1);
 
-for NIndex = 5:length(N)
+for NIndex = 1:length(N)
     
     CLin = diag([ones(N(NIndex),1).' zeros(adapFiltLength(N(NIndex)) - N(NIndex),1).'].');
     CNonLin = diag([zeros(N(NIndex),1).' ones(adapFiltLength(N(NIndex)) - N(NIndex),1).'].');
