@@ -9,8 +9,6 @@ addpath(['.' filesep 'simParameters' filesep]);
 
 load param01.mat;
 
-maxIt = 100;
-
 barGammaLin = sqrt(5*noisePower);
 barGammaNonLin = (1:0.5:4)*barGammaLin;
 
@@ -115,9 +113,7 @@ for barGammaNonLinIndex = 1:length(barGammaNonLin)
                 muNonLin(k) = 1 - barGammaNonLin(barGammaNonLinIndex)/absoluteValueError;
                 
                 G2(:,:,k) = diag(((1 - kappa*muNonLin(k))/adapFiltLength) + (kappa*muNonLin(k)*abs(w2(:,k))/(norm(w2(:,k),1))));
-                
-                den(k) = ((xAP'*CNonLin*G2(:,:,k)*xAP+gamma*eye(1))\eye(1));
-                
+                                
                 w2(:,k+1) = w2(:,k) + muNonLin(k)*CNonLin*G2(:,:,k)*xAP*((xAP'*CNonLin*G2(:,:,k)*xAP+gamma*eye(1))\eye(1))*conj(e(k));
                 countNonLin(k,index) = 1;
             else
@@ -131,7 +127,9 @@ for barGammaNonLinIndex = 1:length(barGammaNonLin)
             end
             
             
-            w(:,k+1) = 2*(lambdaUp*w1(:,k+1)+ (1-lambdaUp)*w2(:,k+1));
+            w(:,k+1) = (lambdaUp*w1(:,k+1)+ (1-lambdaUp)*w2(:,k+1));
+            w1(:,k+1) = w(:,k+1);
+            w2(:,k+1) = w(:,k+1);
             
         end
         wIndex(:,:,index) = conj(w(:,1:globalLength));
@@ -147,6 +145,6 @@ for barGammaNonLinIndex = 1:length(barGammaNonLin)
 end
 
 
-save(['.' filesep 'results' filesep 'resultsTest.mat'],'w3','e3','meanCountLin','meanCountNonLin');
+save(['.' filesep 'results' filesep 'results_sysId01.mat'],'w3','e3','meanCountLin','meanCountNonLin');
 
 rmpath(['.' filesep 'simParameters' filesep]);
