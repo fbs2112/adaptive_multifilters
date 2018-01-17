@@ -31,7 +31,7 @@ for SNRIndex = 1:length(SNR)
                 for index = 1:monteCarloLoops
                     equalyzedSignal = zeros(numberOfSymbols,1);
                     
-                    binaryInputData = randi([0,1],blockLength + 100,1);
+                    binaryInputData = randi([0,1],blockLength + 500,1);
                     binaryInputData = reshape(binaryInputData,[],numberOfBits);
                     deciInputData = bi2de(binaryInputData);
                     pilot = pammod(deciInputData,2^numberOfBits,0,'gray');
