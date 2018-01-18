@@ -11,12 +11,11 @@ load paramEq.mat;
 
 numberOfSymbols = 2^numberOfBits;
 
-maxIt = 50;
 barGammaLin = 4*sqrt(5*noisePower);
 barGammaNonLin = (1:0.5:4)*barGammaLin;
 
 windowLength = 100;
-eta = 0:0.1:0.3;
+eta = 0.1:0.1:0.3;
 lambdaUp = 0.5;
 
 e4 = cell(length(N),length(eta));
@@ -27,7 +26,7 @@ blindIt = zeros(maxIt,1,length(N),length(eta));
 blindIt2 = zeros(maxIt,1,length(N),length(eta));
 
 for etaIndex = 1:length(eta)
-    for NIndex = 5:length(N)
+    for NIndex = 3:length(N)
         
         CLin = diag([ones(N(NIndex),1).' zeros(adapFiltLength(N(NIndex)) - N(NIndex),1).'].');
         CNonLin = diag([zeros(N(NIndex),1).' ones(adapFiltLength(N(NIndex)) - N(NIndex),1).'].');
@@ -208,6 +207,6 @@ for etaIndex = 1:length(eta)
     end
 end
 
-save(['.' filesep 'results' filesep 'resultsTest.mat'],'w4','e4','meanCountLin2','meanCountNonLin2','blindIt','blindIt2');
+save(['.' filesep 'results' filesep 'SBSMDTPU_results01.mat'],'w4','e4','meanCountLin2','meanCountNonLin2','blindIt','blindIt2');
 
 rmpath(['..' filesep '..' filesep 'simParameters' filesep]);

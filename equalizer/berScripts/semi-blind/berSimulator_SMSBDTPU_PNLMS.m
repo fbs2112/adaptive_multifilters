@@ -10,7 +10,7 @@ addpath(['..' filesep '..' filesep 'berParameters']);
 addpath(['..' filesep '..' filesep 'simParameters']);
 
 
-filterFile = 'SBDTPU_results01';
+filterFile = 'SBSMDTPU_results01';
 
 load paramEq.mat;
 load param_feedforwardEq.mat;

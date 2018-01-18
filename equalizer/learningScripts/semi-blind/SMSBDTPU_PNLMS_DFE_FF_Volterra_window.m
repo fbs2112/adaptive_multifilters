@@ -10,12 +10,12 @@ load paramDFE_FF.mat;
 
 numberOfSymbols = 2^numberOfBits;
 barGammaLin = 4*sqrt(5*noisePower);
-barGammaNonLin = (1)*barGammaLin;
+barGammaNonLin = (1:0.5:4)*barGammaLin;
 
 windowLength = 100;
 lambdaUp = 0.5;
 
-eta = 0:0.1:0.3;
+eta = 0.1:0.1:0.3;
 
 e4 = cell(length(feedforwardLength),length(feedbackLength),length(eta));
 w4 = cell(length(feedforwardLength),length(feedbackLength),length(eta));
@@ -25,14 +25,11 @@ meanCountNonLin2 = cell(length(feedforwardLength),length(feedbackLength),length(
 blindIt = zeros(maxIt,1,length(feedforwardLength),length(feedbackLength),length(eta));
 blindIt2 = zeros(maxIt,1,length(feedforwardLength),length(feedbackLength),length(eta));
 
-maxIt = 50;
-
-
 for etaIndex = 1:length(eta)
 
-    for FFIndex = 5:length(feedforwardLength)
+    for FFIndex = 3:length(feedforwardLength)
         FFIndex
-        for FBIndex = 5:length(feedbackLength)
+        for FBIndex = 1:length(feedbackLength)
             FBIndex
             %         delayVector = 1:feedforwardLength+length(h);%adapFiltLength + 10;
 
@@ -236,7 +233,7 @@ for etaIndex = 1:length(eta)
     end
 end
 
-save(['.' filesep 'results' filesep 'resultsTestDFE_FF.mat'],'w4','e4','meanCountLin2','meanCountNonLin2','blindIt','blindIt2');
+save(['.' filesep 'results' filesep 'SBSMDTPU_results02.mat'],'w4','e4','meanCountLin2','meanCountNonLin2','blindIt','blindIt2');
 
 rmpath(['..' filesep '..' filesep 'simParameters' filesep]);
 
