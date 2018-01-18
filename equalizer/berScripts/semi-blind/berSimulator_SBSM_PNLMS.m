@@ -18,10 +18,12 @@ load([filterFile '.mat']);
 
 ber = zeros(length(SNR),size(e4,1),size(e4,2),size(e4{1,1},2));
 
-for SNRIndex = 1:length(SNR)
+blockLength = 1000;
+
+for SNRIndex = 7:7%length(SNR)
     
-    for NIndex = 3:size(e4,1)
-        for etaIndex = 1:size(e4,2)
+    for NIndex = 5:size(e4,1)
+        for etaIndex = 1:1%size(e4,2)
             for barGammaNonLinIndex = 1:size(e4{1,1},2)
                 barGammaNonLinIndex
                 equalizerFilter = [];
@@ -101,7 +103,7 @@ for SNRIndex = 1:length(SNR)
 end
 
 
-save(['.' filesep 'results' filesep  filterFile '_BER.mat'],'SNR','ber');
+% save(['.' filesep 'results' filesep  filterFile '_BER.mat'],'SNR','ber');
 
 rmpath(['..' filesep '..' filesep 'learningScripts' filesep 'semi-blind' filesep 'results']);
 rmpath(['..' filesep '..' filesep 'berParameters']);
