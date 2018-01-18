@@ -1,8 +1,8 @@
 SB_results01: resultados para canal antigo e SBSM_PNLMS;
 
-SB_results02: resultados para canal antigo e SBSM_PNLMS DFE FF;
+SB_results02: resultados para canal antigo e SB_BEACON;
 
-SB_results03: resultados para canal antigo e SB_BEACON;
+SB_results03: resultados para canal antigo e SBSM_PNLMS DFE FF; 
 
 SB_results04: resultados para canal antigo e SB_BEACON DFE FF;
 
