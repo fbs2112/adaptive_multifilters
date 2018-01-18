@@ -11,11 +11,9 @@ load paramEq.mat;
 
 numberOfSymbols = 2^numberOfBits;
 
-
-maxIt = 150;
 barGammaNonLin = 1;
 windowLength = 100;
-eta = 0:0.1:0.3;
+eta = 0.1:0.1:0.3;
 
 e4 = cell(length(N),length(eta));
 w4 = cell(length(N),length(eta));
@@ -24,7 +22,7 @@ blindIt = zeros(maxIt,1,length(N),length(eta));
 blindIt2 = zeros(maxIt,1,length(N),length(eta));
 
 for etaIndex = 1:length(eta)
-    for NIndex = 5:length(N)
+    for NIndex = 3:length(N)
         
         delayVector = N(NIndex)+1;%adapFiltLength + 10;
         delayVector2 = [N(NIndex)+1 N(NIndex)-2];
@@ -180,6 +178,6 @@ for etaIndex = 1:length(eta)
     end
 end
 
-save(['.' filesep 'results' filesep 'resultsTest.mat'],'w4','e4','meanCount2','blindIt','blindIt2');
+save(['.' filesep 'results' filesep 'SB_results01.mat'],'w4','e4','meanCount2','blindIt','blindIt2');
 
 rmpath(['..' filesep '..' filesep 'simParameters' filesep]);

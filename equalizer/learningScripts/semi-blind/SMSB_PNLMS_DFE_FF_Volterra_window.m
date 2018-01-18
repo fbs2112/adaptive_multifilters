@@ -12,7 +12,7 @@ numberOfSymbols = 2^numberOfBits;
 barGammaNonLin = 1;
 windowLength = 100;
 
-eta = 0:0.1:0.3;
+eta = 0.1:0.1:0.3;
 
 e4 = cell(length(feedforwardLength),length(feedbackLength),length(eta));
 w4 = cell(length(feedforwardLength),length(feedbackLength),length(eta));
@@ -21,14 +21,11 @@ meanCount2 = cell(length(feedforwardLength),length(feedbackLength),length(eta));
 blindIt = zeros(maxIt,1,length(feedforwardLength),length(feedbackLength),length(eta));
 blindIt2 = zeros(maxIt,1,length(feedforwardLength),length(feedbackLength),length(eta));
 
-maxIt = 50;
-
-
 for etaIndex = 1:length(eta)
 
-    for FFIndex = 5:length(feedforwardLength)
+    for FFIndex = 3:length(feedforwardLength)
         FFIndex
-        for FBIndex = 5:length(feedbackLength)
+        for FBIndex = 1:length(feedbackLength)
             FBIndex
             %         delayVector = 1:feedforwardLength+length(h);%adapFiltLength + 10;
 
@@ -204,7 +201,7 @@ for etaIndex = 1:length(eta)
     end
 end
 
-save(['.' filesep 'results' filesep 'resultsTestDFE_FF.mat'],'w4','e4','meanCount2','blindIt','blindIt2');
+save(['.' filesep 'results' filesep 'SB_results03.mat'],'w4','e4','meanCount2','blindIt','blindIt2');
 
 rmpath(['..' filesep '..' filesep 'simParameters' filesep]);
 
