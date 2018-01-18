@@ -23,7 +23,7 @@ for SNRIndex = 1:length(SNR)
         for FBIndex = 1:size(e4,2)
             FBIndex
             for etaIndex = 1:size(e4,3)
-                for barGammaNonLinIndex = 1:size(e4{1,1},2)
+                for barGammaNonLinIndex = 1:size(e4{3,3},2)
                     equalyzerFilter = [];
                     berAux = zeros(monteCarloLoops,1);
                     equalyzerFilter(:,1) = squeeze(w4{FFIndex,FBIndex,etaIndex}{1,barGammaNonLinIndex}(:,4999));

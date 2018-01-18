@@ -15,14 +15,14 @@ load paramDFE_FF;
 load param_feedforwardEq.mat;
 load([filterFile '.mat']);
 
-ber = zeros(length(SNR),size(e4,1),size(e4,2),size(e4{1,1},2));
+ber = zeros(length(SNR),size(e4,1),size(e4,2),size(e4{3,3},2));
 
 for SNRIndex = 1:length(SNR)
     for FFIndex = 3:size(e4,1)
         FFIndex
         for FBIndex = 1:size(e4,2)
             FBIndex
-            for barGammaNonLinIndex = 1:size(e4{1,1},2)
+            for barGammaNonLinIndex = 1:size(e4{3,3},2)
                 equalyzerFilter = [];
                 berAux = zeros(monteCarloLoops,1);
                 equalyzerFilter(:,1) = squeeze(w4{FFIndex,FBIndex}{1,barGammaNonLinIndex}(:,4999));
