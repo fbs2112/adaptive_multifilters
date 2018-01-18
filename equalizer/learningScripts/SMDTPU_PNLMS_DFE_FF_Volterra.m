@@ -214,7 +214,7 @@ for FFIndex = 3:length(feedforwardLength)
     end
 end
 
-save(['.' filesep 'results' filesep 'results_SMDTPU_03.mat'],'w4','e4','meanCountLin2','meanCountNonLin2');
+save(['.' filesep 'results' filesep 'results_SMDTPU_02.mat'],'w4','e4','meanCountLin2','meanCountNonLin2');
 
 rmpath(['..' filesep 'simParameters' filesep]);
 

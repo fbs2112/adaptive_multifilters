@@ -19,7 +19,7 @@ w4 = cell(length(N),1);
 meanCountLin2 = cell(length(N),1);
 meanCountNonLin2 = cell(length(N),1);
 
-for NIndex = 1:length(N)
+for NIndex = 3:length(N)
     
     CLin = diag([ones(N(NIndex),1).' zeros(adapFiltLength(N(NIndex)) - N(NIndex),1).'].');
     CNonLin = diag([zeros(N(NIndex),1).' ones(adapFiltLength(N(NIndex)) - N(NIndex),1).'].');

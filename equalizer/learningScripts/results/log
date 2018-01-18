@@ -10,5 +10,5 @@ results5: mesma coisa que results3 com bugs na matriz G corrigidos;
 
 results_SMDTPU_01: resultados para SM_DTPU_PNLMS com canal antigo;
 
-results_SMDTPU_03: resultados para SM_DTPU_PNLMS com canal antigo e para DFE_FF;
+results_SMDTPU_02: resultados para SM_DTPU_PNLMS com canal antigo e para DFE_FF;
 
