@@ -20,7 +20,7 @@ ber = zeros(length(SNR),size(e4,1),size(e4,2),size(e4{1,1},2));
 
 for SNRIndex = 1:length(SNR)
     
-    for NIndex = 1:size(e4,1)
+    for NIndex = 3:size(e4,1)
         for etaIndex = 1:size(e4,2)
             for barGammaNonLinIndex = 1:size(e4{1,1},2)
                 barGammaNonLinIndex

@@ -9,13 +9,12 @@ addpath(['..' filesep '..' filesep 'learningScripts' filesep 'results']);
 addpath(['..' filesep '..' filesep 'berParameters']);
 addpath(['..' filesep '..' filesep 'simParameters']);
 
-filterFile = 'results_SMDTPU_03';
+filterFile = 'results_SMDTPU_02';
 
 load paramDFE_FF;
 load param_feedforwardEq.mat;
 load([filterFile '.mat']);
 
-blockLength = 1000;
 ber = zeros(length(SNR),size(e4,1),size(e4,2),size(e4{1,1},2));
 
 for SNRIndex = 1:length(SNR)
