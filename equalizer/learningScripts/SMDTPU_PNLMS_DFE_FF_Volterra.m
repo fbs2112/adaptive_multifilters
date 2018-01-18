@@ -18,7 +18,7 @@ w4 = cell(length(feedforwardLength),length(feedbackLength));
 meanCountLin2 = cell(length(feedforwardLength),length(feedbackLength));
 meanCountNonLin2 = cell(length(feedforwardLength),length(feedbackLength));
 
-for FFIndex = 1:length(feedforwardLength)
+for FFIndex = 3:length(feedforwardLength)
     FFIndex
     for FBIndex = 1:length(feedbackLength)
         FBIndex
@@ -214,7 +214,7 @@ for FFIndex = 1:length(feedforwardLength)
     end
 end
 
-save(['.' filesep 'results' filesep 'resultsTestDFE_FF.mat'],'w4','e4','meanCountLin2','meanCountNonLin2');
+save(['.' filesep 'results' filesep 'results_SMDTPU_03.mat'],'w4','e4','meanCountLin2','meanCountNonLin2');
 
 rmpath(['..' filesep 'simParameters' filesep]);
 
