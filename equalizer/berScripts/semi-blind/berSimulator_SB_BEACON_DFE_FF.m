@@ -9,7 +9,7 @@ addpath(['..' filesep '..' filesep 'learningScripts' filesep 'semi-blind' filese
 addpath(['..' filesep '..' filesep 'berParameters']);
 addpath(['..' filesep '..' filesep 'simParameters']);
 
-filterFile = 'SB_results05';
+filterFile = 'SB_results04';
 
 load paramDFE_FF;
 load param_feedforwardEq.mat;

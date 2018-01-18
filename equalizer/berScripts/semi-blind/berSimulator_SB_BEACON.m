@@ -10,7 +10,7 @@ addpath(['..' filesep '..' filesep 'berParameters']);
 addpath(['..' filesep '..' filesep 'simParameters']);
 
 
-filterFile = 'SB_results04';
+filterFile = 'SB_results02';
 
 load paramEq.mat;
 load param_feedforwardEq.mat;
