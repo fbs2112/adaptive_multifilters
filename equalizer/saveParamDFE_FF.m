@@ -3,7 +3,7 @@ clc;
 close all;
 
 
-maxRuns = 10000; % max runs in a single independent trial
+maxRuns = 7000; % max runs in a single independent trial
 maxIt = 1000;    %number of independent trial
 signalPower = 1;    %desired input signal power
 noisePower = 1e-3;  %desired measurement noise power
@@ -25,7 +25,7 @@ volterraFFFlag = 1;
 volterraFBFlag = 0;
 
 
-feedforwardLength = 1:5;
+feedforwardLength = 7:9;
 feedbackLength = 1:5;
 
 
@@ -78,7 +78,7 @@ barGamma = 4*sqrt(5*noisePower); %threshold for set-membership purposes
 
 
 numberOfBits = 2;
-changingIteration = 5000;
+changingIteration = 10000;
 
 pamOrder = 2^numberOfBits;
 

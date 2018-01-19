@@ -23,7 +23,7 @@ blindIt2 = zeros(maxIt,1,length(feedforwardLength),length(feedbackLength),length
 
 for etaIndex = 1:length(eta)
 
-    for FFIndex = 3:length(feedforwardLength)
+    for FFIndex = 1:length(feedforwardLength)
         FFIndex
         for FBIndex = 1:length(feedbackLength)
             FBIndex

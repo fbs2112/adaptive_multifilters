@@ -21,7 +21,7 @@ blindIt = zeros(maxIt,1,length(N),length(eta));
 blindIt2 = zeros(maxIt,1,length(N),length(eta));
 
 for etaIndex = 1:length(eta)
-    for NIndex = 3:length(N)
+    for NIndex = 1:length(N)
         
         delayVector = N(NIndex)+1;%adapFiltLength + 10;
         delayVector2 = [N(NIndex)+1 N(NIndex)-2];
@@ -38,7 +38,7 @@ for etaIndex = 1:length(eta)
 
                 globalLength = maxRuns + N(NIndex) - 1;
                 count = zeros(globalLength,maxIt);
-                wIndex = zeros(adapFiltLength(N(NIndex)),globalLength,maxIt);
+                wIndex = zeros(adapFiltLength(NIndex),globalLength,maxIt);
                 e2 = zeros(globalLength,maxIt);
 
                 for index = 1:maxIt
