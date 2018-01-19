@@ -7,7 +7,7 @@ close all;
 
 addpath(['..' filesep 'simParameters' filesep]);
 
-load paramEq.mat;
+load paramEq_DT.mat;
 
 numberOfSymbols = 2^numberOfBits;
 

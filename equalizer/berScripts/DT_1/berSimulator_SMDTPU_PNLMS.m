@@ -12,7 +12,7 @@ addpath(['..' filesep '..' filesep 'simParameters']);
 
 filterFile = 'results_SMDTPU_01';
 
-load paramEq.mat;
+load paramEq_DT.mat;
 load param_feedforwardEq.mat;
 load([filterFile '.mat']);
 

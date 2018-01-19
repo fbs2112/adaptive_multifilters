@@ -6,7 +6,7 @@ close all;
 
 addpath(['..' filesep 'simParameters' filesep]);
 
-load paramDFE_FF.mat;
+load paramDFE_FF_DT.mat;
 
 numberOfSymbols = 2^numberOfBits;
 

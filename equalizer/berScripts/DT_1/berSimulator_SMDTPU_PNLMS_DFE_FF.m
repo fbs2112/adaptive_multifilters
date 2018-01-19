@@ -11,7 +11,7 @@ addpath(['..' filesep '..' filesep 'simParameters']);
 
 filterFile = 'results_SMDTPU_02';
 
-load paramDFE_FF;
+load paramDFE_FF_DT;
 load param_feedforwardEq.mat;
 load([filterFile '.mat']);
 
