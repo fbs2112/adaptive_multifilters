@@ -39,7 +39,7 @@ for etaIndex = 1:length(eta)
 
                 globalLength = maxRuns + N(NIndex) - 1;
                 count = zeros(globalLength,maxIt);
-                wIndex = zeros(adapFiltLength(N(NIndex)),globalLength,maxIt);
+                wIndex = zeros(adapFiltLength(NIndex),globalLength,maxIt);
                 e2 = zeros(globalLength,maxIt);
 
                 for index = 1:maxIt
@@ -49,7 +49,7 @@ for etaIndex = 1:length(eta)
                     mu = zeros(globalLength,1);
                     gammaAux = zeros(globalLength,1);
                     medianAux = zeros(globalLength,1);
-                    G = zeros(adapFiltLength(N(NIndex)),adapFiltLength(N(NIndex)),globalLength);
+                    G = zeros(adapFiltLength(NIndex),adapFiltLength(NIndex),globalLength);
                     xFiltered = zeros(globalLength,1);
                     xLin = zeros(N(NIndex),globalLength);
                     input = randi([0,numberOfSymbols-1],globalLength,1);
@@ -152,7 +152,7 @@ for etaIndex = 1:length(eta)
 
                         if absoluteValueError > barGamma
                             mu(k) = 1 - barGamma/absoluteValueError;
-                            G(:,:,k) = diag(((1 - kappa*mu(k))/adapFiltLength(N(NIndex))) + (kappa*mu(k)*abs(w(:,k))/norm(w(:,k),1)));
+                            G(:,:,k) = diag(((1 - kappa*mu(k))/adapFiltLength(NIndex)) + (kappa*mu(k)*abs(w(:,k))/norm(w(:,k),1)));
 
                             w(:,k+1) = w(:,k) + mu(k) * G(:,:,k)*xAP*((xAP'*G(:,:,k)*xAP+gamma*eye(1))\eye(1))*conj(e(k));
                             count(k,index) = 1;
