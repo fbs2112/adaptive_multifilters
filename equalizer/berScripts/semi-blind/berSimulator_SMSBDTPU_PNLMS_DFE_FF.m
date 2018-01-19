@@ -5,7 +5,7 @@ clear;
 clc;
 close all;
 
-addpath(['..' filesep '..' filesep 'learningScripts' filesep 'results']);
+addpath(['..' filesep '..' filesep 'learningScripts' filesep 'semi-blind' filesep 'results']);
 addpath(['..' filesep '..' filesep 'berParameters']);
 addpath(['..' filesep '..' filesep 'simParameters']);
 
@@ -132,7 +132,7 @@ end
 
 save(['.' filesep 'results' filesep  filterFile '_BER.mat'],'SNR','ber');
 
-rmpath(['..' filesep '..' filesep 'learningScripts' filesep 'results']);
+rmpath(['..' filesep '..' filesep 'learningScripts' filesep 'semi-blind' filesep 'results']);
 rmpath(['..' filesep '..' filesep 'berParameters']);
 rmpath(['..' filesep '..' filesep 'simParameters']);
 
