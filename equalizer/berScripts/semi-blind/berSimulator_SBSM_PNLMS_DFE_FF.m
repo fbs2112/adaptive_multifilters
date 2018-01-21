@@ -18,7 +18,7 @@ load([filterFile '.mat']);
 ber = zeros(length(SNR),size(e4,1),size(e4,2),size(e4,3),size(e4{3,3},2));
 
 for SNRIndex = 1:length(SNR)
-    for FFIndex = 3:size(e4,1)
+    for FFIndex = 1:size(e4,1)
         FFIndex
         for FBIndex = 1:size(e4,2)
             FBIndex
