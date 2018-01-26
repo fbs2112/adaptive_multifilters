@@ -22,14 +22,15 @@ w4 = cell(length(feedforwardLength),length(feedbackLength),length(eta));
 meanCountLin2 = cell(length(feedforwardLength),length(feedbackLength),length(eta));
 meanCountNonLin2 = cell(length(feedforwardLength),length(feedbackLength),length(eta));
 
-blindIt = zeros(maxIt,1,length(feedforwardLength),length(feedbackLength),length(eta));
-blindIt2 = zeros(maxIt,1,length(feedforwardLength),length(feedbackLength),length(eta));
+blindIt = zeros(maxIt,1,length(feedforwardLength),length(feedbackLength),length(eta),length(barGammaNonLin));
+blindIt2 = zeros(maxIt,1,length(feedforwardLength),length(feedbackLength),length(eta),length(barGammaNonLin));
 
-for etaIndex = 1:length(eta)
 
-    for FFIndex = 1:length(feedforwardLength)
+for etaIndex = 1:1%length(eta)
+
+    for FFIndex = 3:length(feedforwardLength)
         FFIndex
-        for FBIndex = 1:length(feedbackLength)
+        for FBIndex = 1:1%length(feedbackLength)
             FBIndex
             %         delayVector = 1:feedforwardLength+length(h);%adapFiltLength + 10;
 
@@ -165,9 +166,9 @@ for etaIndex = 1:length(eta)
                                     d(k) = pamHardThreshold(y);
 
                                     if ~blindFlag && k < changingIteration
-                                        blindIt(index,delay,FFIndex,FBIndex,etaIndex) = k;
+                                        blindIt(index,delay,FFIndex,FBIndex,etaIndex,barGammaNonLinIndex) = k;
                                     elseif ~blindFlag && k > changingIteration
-                                        blindIt2(index,delay,FFIndex,FBIndex,etaIndex) = k;
+                                        blindIt2(index,delay,FFIndex,FBIndex,etaIndex,barGammaNonLinIndex) = k;
                                     end
                                     blindFlag = 1;
 
@@ -233,7 +234,7 @@ for etaIndex = 1:length(eta)
     end
 end
 
-save(['.' filesep 'results' filesep 'SBSMDTPU_results02.mat'],'w4','e4','meanCountLin2','meanCountNonLin2','blindIt','blindIt2');
+save(['.' filesep 'results' filesep 'SBSMDTPU_results04.mat'],'w4','e4','meanCountLin2','meanCountNonLin2','blindIt','blindIt2');
 
 rmpath(['..' filesep '..' filesep 'simParameters' filesep]);
 

@@ -22,11 +22,11 @@ e4 = cell(length(N),length(eta));
 w4 = cell(length(N),length(eta));
 meanCountLin2 = cell(length(N),length(eta));
 meanCountNonLin2 = cell(length(N),length(eta));
-blindIt = zeros(maxIt,1,length(N),length(eta));
-blindIt2 = zeros(maxIt,1,length(N),length(eta));
+blindIt = zeros(maxIt,1,length(N),length(eta),length(barGammaNonLin));
+blindIt2 = zeros(maxIt,1,length(N),length(eta),length(barGammaNonLin));
 
-for etaIndex = 1:length(eta)
-    for NIndex = 1:length(N)
+for etaIndex = 1:1%length(eta)
+    for NIndex = 3:length(N)
         
         CLin = diag([ones(N(NIndex),1).' zeros(adapFiltLength(NIndex) - N(NIndex),1).'].');
         CNonLin = diag([zeros(N(NIndex),1).' ones(adapFiltLength(NIndex) - N(NIndex),1).'].');
@@ -139,9 +139,9 @@ for etaIndex = 1:length(eta)
                                 d(k) = pamHardThreshold(y);
 
                                 if ~blindFlag && k < changingIteration
-                                    blindIt(index,delay,NIndex,etaIndex) = k;
+                                    blindIt(index,delay,NIndex,etaIndex,barGammaNonLinIndex) = k;
                                 elseif ~blindFlag && k > changingIteration
-                                    blindIt2(index,delay,NIndex,etaIndex) = k;
+                                    blindIt2(index,delay,NIndex,etaIndex,barGammaNonLinIndex) = k;
                                 end
                                 blindFlag = 1;
 
@@ -207,6 +207,6 @@ for etaIndex = 1:length(eta)
     end
 end
 
-save(['.' filesep 'results' filesep 'SBSMDTPU_results01.mat'],'w4','e4','meanCountLin2','meanCountNonLin2','blindIt','blindIt2');
+save(['.' filesep 'results' filesep 'SBSMDTPU_results03.mat'],'w4','e4','meanCountLin2','meanCountNonLin2','blindIt','blindIt2');
 
 rmpath(['..' filesep '..' filesep 'simParameters' filesep]);
