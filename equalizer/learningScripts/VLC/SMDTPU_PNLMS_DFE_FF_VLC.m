@@ -13,15 +13,13 @@ numberOfSymbols = 2^numberOfBits;
 lambdaUp = 0.5;
 
 barGammaLin = 4*sqrt(5*noisePower);
-barGammaNonLin = (1)*barGammaLin;
+barGammaNonLin = (1:0.5:4)*barGammaLin;
 modulationIndexVector = [0.05 0.075 0.1];
 
 e4 = cell(length(feedforwardLength),length(feedbackLength),length(modulationIndexVector));
 w4 = cell(length(feedforwardLength),length(feedbackLength),length(modulationIndexVector));
 meanCountLin2 = cell(length(feedforwardLength),length(feedbackLength),length(modulationIndexVector));
 meanCountNonLin2 = cell(length(feedforwardLength),length(feedbackLength),length(modulationIndexVector));
-
-maxIt = 50;
 
 for modulationIndex = 1:length(modulationIndexVector)
 
@@ -189,7 +187,7 @@ for modulationIndex = 1:length(modulationIndexVector)
     
 end
 
-save(['.' filesep 'results' filesep 'resultsTestDFE_FF.mat'],'w4','e4','meanCountLin2','meanCountNonLin2');
+save(['.' filesep 'results' filesep 'results_SMDTPU_VLC_02.mat'],'w4','e4','meanCountLin2','meanCountNonLin2');
 
 rmpath(['..' filesep '..' filesep 'VLC_param' filesep]);
 
