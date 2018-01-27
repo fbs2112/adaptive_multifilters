@@ -14,22 +14,15 @@ numberOfSymbols = 2^numberOfBits;
 
 barGammaNonLin = 1;
 windowLength = 100;
-eta = 0:0.1:0.3;
-
-eta = 0.1;
+eta = 0.1:0.1:0.3;
 
 modulationIndexVector = [0.05 0.075 0.1];
-modulationIndexVector = [0.05];
-
 
 e4 = cell(length(N),length(eta),length(modulationIndexVector));
 w4 = cell(length(N),length(eta),length(modulationIndexVector));
 meanCount2 = cell(length(N),length(eta),length(modulationIndexVector));
 blindIt = zeros(maxIt,1,length(N),length(eta),length(modulationIndexVector));
 blindIt2 = zeros(maxIt,1,length(N),length(eta),length(modulationIndexVector));
-
-maxIt = 50;
-
 
 for modulationIndex = 1:length(modulationIndexVector)
     
@@ -106,9 +99,9 @@ for modulationIndex = 1:length(modulationIndexVector)
                                     d(k) = pamHardThreshold(y);
 
                                     if ~blindFlag 
-                                        blindIt(index,delay,NIndex,etaIndex) = k;
+                                        blindIt(index,delay,NIndex,etaIndex,modulationIndex) = k;
                                     elseif ~blindFlag 
-                                        blindIt2(index,delay,NIndex,etaIndex) = k;
+                                        blindIt2(index,delay,NIndex,etaIndex,modulationIndex) = k;
                                     end
                                     blindFlag = 1;
 
@@ -159,6 +152,6 @@ for modulationIndex = 1:length(modulationIndexVector)
     end
 end
 
-save(['.' filesep 'results' filesep 'resultsTest.mat'],'w4','e4','meanCount2','blindIt','blindIt2');
+save(['.' filesep 'results' filesep 'resultsSB_VLC_02.mat'],'w4','e4','meanCount2','blindIt','blindIt2');
 
 rmpath(['..' filesep '..' filesep '..' filesep 'VLC_param' filesep]);

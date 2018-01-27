@@ -147,6 +147,6 @@ for modulationIndex = 1:length(modulationIndexVector)
     end
 end
 
-save(['.' filesep 'results' filesep 'resultsTest.mat'],'w4','e4','meanCount2','blindIt','blindIt2');
+save(['.' filesep 'results' filesep 'resultsSB_VLC_01.mat'],'w4','e4','meanCount2','blindIt','blindIt2');
 
 rmpath(['..' filesep '..' filesep '..' filesep 'VLC_param' filesep]);

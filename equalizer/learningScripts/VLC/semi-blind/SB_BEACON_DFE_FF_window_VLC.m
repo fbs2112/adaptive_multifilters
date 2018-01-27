@@ -14,7 +14,7 @@ barGammaNonLin = 1;
 windowLength = 100;
 
 modulationIndexVector = [0.05 0.075 0.1];
-eta = 0:0.1:0.3;
+eta = 0.1:0.1:0.3;
 
 e4 = cell(length(feedforwardLength),length(feedbackLength),length(eta),length(modulationIndexVector));
 w4 = cell(length(feedforwardLength),length(feedbackLength),length(eta),length(modulationIndexVector));
@@ -22,8 +22,6 @@ meanCount2 = cell(length(feedforwardLength),length(feedbackLength),length(eta),l
 
 blindIt = zeros(maxIt,1,length(feedforwardLength),length(feedbackLength),length(eta),length(modulationIndexVector));
 blindIt2 = zeros(maxIt,1,length(feedforwardLength),length(feedbackLength),length(eta),length(modulationIndexVector));
-
-maxIt = 50;
 
 
 for modulationIndex = 1:length(modulationIndexVector)
@@ -34,7 +32,7 @@ for modulationIndex = 1:length(modulationIndexVector)
 
         for FFIndex = 1:length(feedforwardLength)
             FFIndex
-            for FBIndex = 5:length(feedbackLength)
+            for FBIndex = 1:length(feedbackLength)
                 FBIndex
                 %         delayVector = 1:feedforwardLength+length(h);%adapFiltLength + 10;
 
@@ -96,7 +94,7 @@ for modulationIndex = 1:length(modulationIndexVector)
 
                                     for lIndex = 1:length(l1FF{FFIndex})
                                         aux(lIndex,1) = x(l1FF{FFIndex}(lIndex),k)*(x(l2FF{FFIndex}(lIndex),k));
-                                    end
+                                    endresultsTestDFE_FF
                                     xConc = [x(:,k);aux];
                                 else
                                     xConc = x(:,k);
@@ -179,7 +177,7 @@ for modulationIndex = 1:length(modulationIndexVector)
     end
 end
 
-save(['.' filesep 'results' filesep 'resultsTestDFE_FF.mat'],'w4','e4','meanCount2','blindIt','blindIt2');
+save(['.' filesep 'results' filesep 'resultsSB_VLC_04.mat'],'w4','e4','meanCount2','blindIt','blindIt2');
 
 rmpath(['..' filesep '..' filesep '..' filesep 'VLC_param' filesep]);
 
