@@ -13,11 +13,11 @@ load VLC_param01.mat;
 numberOfSymbols = 2^numberOfBits;
 
 barGammaLin = 4*sqrt(5*noisePower);
-barGammaNonLin = (1)*barGammaLin;
+barGammaNonLin = (1:0.5:4)*barGammaLin;
 
 modulationIndexVector = [0.05 0.075 0.1];
 
-eta = 0:0.1:0.3;
+eta = 0.1:0.1:0.3;
 
 lambdaUp = 0.5;
 windowLength = 100;
@@ -28,12 +28,11 @@ meanCountLin2 = cell(length(N),length(eta),length(modulationIndexVector));
 meanCountNonLin2 = cell(length(N),length(eta),length(modulationIndexVector));
 blindIt = zeros(maxIt,1,length(N),length(eta),length(modulationIndexVector));
 blindIt2 = zeros(maxIt,1,length(N),length(eta),length(modulationIndexVector));
-maxIt = 30;
 
 for modulationIndex = 1:length(modulationIndexVector)
     maxVoltage = VDC*(1+modulationIndexVector(modulationIndex));
     for etaIndex = 1:length(eta)
-        for NIndex = 3:length(N)
+        for NIndex = 1:length(N)
 
             CLin = diag([ones(N(NIndex),1).' zeros(adapFiltLength(NIndex) - N(NIndex),1).'].');
             CNonLin = diag([zeros(N(NIndex),1).' ones(adapFiltLength(NIndex) - N(NIndex),1).'].');
@@ -177,6 +176,6 @@ for modulationIndex = 1:length(modulationIndexVector)
     end
 end
 
-save(['.' filesep 'results' filesep 'resultsTest.mat'],'w4','e4','meanCountLin2','meanCountNonLin2','blindIt','blindIt2');
+save(['.' filesep 'results' filesep 'resultsSBSMDTPU_VLC_01.mat'],'w4','e4','meanCountLin2','meanCountNonLin2','blindIt','blindIt2');
 
 rmpath(['..' filesep '..' filesep 'simParameters' filesep]);

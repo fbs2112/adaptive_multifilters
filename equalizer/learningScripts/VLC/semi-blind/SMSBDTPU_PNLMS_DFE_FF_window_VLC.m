@@ -11,14 +11,14 @@ load VLC_param01.mat;
 
 numberOfSymbols = 2^numberOfBits;
 barGammaLin = 4*sqrt(5*noisePower);
-barGammaNonLin = (1)*barGammaLin;
+barGammaNonLin = (1:0.5:4)*barGammaLin;
 
 modulationIndexVector = [0.05 0.075 0.1];
 
 windowLength = 100;
 lambdaUp = 0.5;
 
-eta = 0:0.1:0.3;
+eta = 0.1:0.1:0.3;
 
 e4 = cell(length(feedforwardLength),length(feedbackLength),length(eta),length(modulationIndexVector));
 w4 = cell(length(feedforwardLength),length(feedbackLength),length(eta),length(modulationIndexVector));
@@ -28,7 +28,6 @@ meanCountNonLin2 = cell(length(feedforwardLength),length(feedbackLength),length(
 blindIt = zeros(maxIt,1,length(feedforwardLength),length(feedbackLength),length(eta),length(modulationIndexVector));
 blindIt2 = zeros(maxIt,1,length(feedforwardLength),length(feedbackLength),length(eta),length(modulationIndexVector));
 
-maxIt = 50;
 
 for modulationIndex = 1:length(modulationIndexVector)
     maxVoltage = VDC*(1+modulationIndexVector(modulationIndex));
@@ -36,9 +35,8 @@ for modulationIndex = 1:length(modulationIndexVector)
 
         for FFIndex = 1:length(feedforwardLength)
             FFIndex
-            for FBIndex = 5:length(feedbackLength)
+            for FBIndex = 1:length(feedbackLength)
                 FBIndex
-                %         delayVector = 1:feedforwardLength+length(h);%adapFiltLength + 10;
 
                 delayVector = feedforwardLength(FFIndex)+1;
 
@@ -205,7 +203,7 @@ for modulationIndex = 1:length(modulationIndexVector)
     
 end
 
-save(['.' filesep 'results' filesep 'resultsTestDFE_FF.mat'],'w4','e4','meanCountLin2','meanCountNonLin2','blindIt','blindIt2');
+save(['.' filesep 'results' filesep 'resultsSBSMDTPU_VLC_02.mat'],'w4','e4','meanCountLin2','meanCountNonLin2','blindIt','blindIt2');
 
 rmpath(['..' filesep '..' filesep '..' filesep 'VLC_param' filesep]);
 
