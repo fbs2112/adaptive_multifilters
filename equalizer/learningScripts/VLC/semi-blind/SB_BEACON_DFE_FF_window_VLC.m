@@ -94,7 +94,7 @@ for modulationIndex = 1:length(modulationIndexVector)
 
                                     for lIndex = 1:length(l1FF{FFIndex})
                                         aux(lIndex,1) = x(l1FF{FFIndex}(lIndex),k)*(x(l2FF{FFIndex}(lIndex),k));
-                                    endresultsTestDFE_FF
+                                    end
                                     xConc = [x(:,k);aux];
                                 else
                                     xConc = x(:,k);
