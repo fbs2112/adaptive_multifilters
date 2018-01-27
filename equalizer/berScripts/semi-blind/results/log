@@ -8,3 +8,7 @@ SB_results04_BER: resultados para arquivo SB_results04  ;
 
 SBDTPU_results01_BER: resultados para arquivo SBDTPU_results01;
 
+SBDTPU_results02_BER: resultados para arquivo SBDTPU_results02;
+
+SBDTPU_results02_2_BER: resultados para arquivo SBDTPU_results02 com loops diminuidos;
+

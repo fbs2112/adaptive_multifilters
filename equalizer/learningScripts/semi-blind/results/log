@@ -11,3 +11,8 @@ SB_results04: resultados para canal antigo e SB_BEACON DFE FF;
 SBSMDTPU_results01: resultados para canal antigo e SBSMDTPU_PNLMS;
 
 SBSMDTPU_results02: resultados para canal antigo e SBSMDTPU_PNLMS DFE FF;
+
+SBSMDTPU_results03: resultados para canal antigo e SBSMDTPU_PNLMS com loop reduzido;
+
+
+SBSMDTPU_results04: resultados para canal antigo e SBSMDTPU_PNLMS DFE FF com loops reduzido;
