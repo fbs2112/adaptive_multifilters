@@ -4,7 +4,9 @@ clear;
 clc;
 close all;
 
-addpath(['..' filesep '..' filesep 'VLC_param' filesep]);
+addpath(['..' filesep '..' filesep 'VLC_param' filesep]); 
+addpath(['..' filesep '..' filesep 'VLC_param' filesep 'Utils' filesep]); 
+addpath(['..' filesep '..' filesep 'VLC_param' filesep 'LED Parameters' filesep]); 
 
 load paramDFE_FF_VLC.mat;
 load VLC_param01.mat;
@@ -189,5 +191,6 @@ end
 
 save(['.' filesep 'results' filesep 'results_SMDTPU_VLC_02.mat'],'w4','e4','meanCountLin2','meanCountNonLin2');
 
-rmpath(['..' filesep '..' filesep 'VLC_param' filesep]);
-
+rmpath(['..' filesep '..' filesep 'VLC_param' filesep]); 
+rmpath(['..' filesep '..' filesep 'VLC_param' filesep 'Utils' filesep]); 
+rmpath(['..' filesep '..' filesep 'VLC_param' filesep 'LED Parameters' filesep]); 

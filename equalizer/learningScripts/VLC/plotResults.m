@@ -10,13 +10,15 @@ fontname = 'Times';
 fontsize = 24;
 
 figProp = struct( 'size' , 24 , 'font' ,fontname , 'lineWidth' , linewidth, 'figDim', [1 1 800 600]);
+    
+fileVector = {'results_SMPNLMS_VLC_01' 'results_BEACON_VLC_01'};
 
-fileVector = {'resultsTest'};
 
-for l = 1:length(fileVector)
+for m = 1:3
     figure
-    load([fileVector{l} '.mat']);
-    for m = 1:size(e4,2)
+    for l = 1:length(fileVector)
+        
+        load([fileVector{l} '.mat']);
         for i = 1:size(e4,1)
             for j = 1:size(e4{i,m},1)
                 
@@ -27,36 +29,36 @@ for l = 1:length(fileVector)
                     xAux = 10*log10(x(aux:end));
                     plot(xAux)
                     
-%                     updatesLin = mean(meanCountLin2{i,m}{j,k}(aux:4999))*100;
-%                     updatesNonLin = mean(meanCountNonLin2{i,m}{j,k}(aux:4999))*100;
+                    %                     updatesLin = mean(meanCountLin2{i,m}{j,k}(aux:4999))*100;
+                    %                     updatesNonLin = mean(meanCountNonLin2{i,m}{j,k}(aux:4999))*100;
                     
-                   
+                    
                     
                     hold on
                     
-%                     updatesAux(i,j,k,l,m,:) = [updatesLin updatesNonLin];
-                    updatesAux(i,j,k,l,m,:) = mean(meanCount2{i,m}{j,k}(aux:4999))*100;
+                    %                     updatesAux(i,j,k,l,m,:) = [updatesLin updatesNonLin];
+                    updatesAux(i,j,k,l,m,:) = mean(meanCount2{i,m}{j,k}(aux:end))*100;
                 end
                 
                 
-                H = legend('$\gamma_{\mathrm{NL}} = \gamma_{\mathrm{L}}$','$\gamma_{\mathrm{NL}} = 1.5\gamma_{\mathrm{L}}$','$\gamma_{\mathrm{NL}} = 2\gamma_{\mathrm{L}}$',...
-                    '$\gamma_{\mathrm{NL}} = 2.5\gamma_{\mathrm{L}}$','$\gamma_{\mathrm{NL}} = 3\gamma_{\mathrm{L}}$','$\gamma_{\mathrm{NL}} = 3.5\gamma_{\mathrm{L}}$',...
-                    '$\gamma_{\mathrm{NL}} = 4\gamma_{\mathrm{L}}$');
-                set(H,'interpreter','latex')
-%                 ylim([-15 10]);
+                %                 H = legend('$\gamma_{\mathrm{NL}} = \gamma_{\mathrm{L}}$','$\gamma_{\mathrm{NL}} = 1.5\gamma_{\mathrm{L}}$','$\gamma_{\mathrm{NL}} = 2\gamma_{\mathrm{L}}$',...
+                %                     '$\gamma_{\mathrm{NL}} = 2.5\gamma_{\mathrm{L}}$','$\gamma_{\mathrm{NL}} = 3\gamma_{\mathrm{L}}$','$\gamma_{\mathrm{NL}} = 3.5\gamma_{\mathrm{L}}$',...
+                %                     '$\gamma_{\mathrm{NL}} = 4\gamma_{\mathrm{L}}$');
+                %                 set(H,'interpreter','latex')
+                ylim([-20 10]);
                 
                 ylabel('MSE [dB]','interpreter','latex');
                 xlabel('Iterations [$k$]','interpreter','latex');
-                xlim([0 3000])
+                xlim([0 2000])
                 
                 
-            end            
+            end
         end
-       
+        
     end
     
 end
-    
+
 
 
 

@@ -5,7 +5,9 @@ clc;
 close all;
 
 
-addpath(['..' filesep '..' filesep '..' filesep 'VLC_param' filesep]);
+addpath(['..' filesep '..' filesep '..' filesep 'VLC_param' filesep]); 
+addpath(['..' filesep '..' filesep '..' filesep 'VLC_param' filesep 'Utils' filesep]); 
+addpath(['..' filesep '..' filesep  '..' filesep 'VLC_param' filesep 'LED Parameters' filesep]); 
 
 load paramEqVLC.mat;
 load VLC_param01.mat;
@@ -149,4 +151,6 @@ end
 
 save(['.' filesep 'results' filesep 'resultsSB_VLC_01.mat'],'w4','e4','meanCount2','blindIt','blindIt2');
 
-rmpath(['..' filesep '..' filesep '..' filesep 'VLC_param' filesep]);
+rmpath(['..' filesep '..' filesep '..' filesep 'VLC_param' filesep]); 
+rmpath(['..' filesep '..' filesep '..' filesep 'VLC_param' filesep 'Utils' filesep]); 
+rmpath(['..' filesep '..' filesep  '..' filesep 'VLC_param' filesep 'LED Parameters' filesep]); 

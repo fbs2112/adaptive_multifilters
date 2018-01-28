@@ -1,9 +1,5 @@
 function [receivedVoltageSignal] = VLC_channel(signal, modulationIndex, maxVoltage, VDC, SNR)
 
-addpath(['..' filesep '..' filesep '..' filesep 'VLC_param' filesep]); 
-addpath(['..' filesep '..' filesep '..' filesep 'VLC_param' filesep 'Utils' filesep]); 
-addpath(['..' filesep '..' filesep  '..' filesep 'VLC_param' filesep 'LED Parameters' filesep]); 
-
 load whiteLED_334-15_Param.mat;
 load whiteLED_334-15.mat;
 load VLC_param01.mat;
@@ -49,9 +45,5 @@ receivedVoltageSignalAux = (receivedCurrentSignal + n);
 receivedVoltageSignalAux = receivedVoltageSignalAux - mean(receivedVoltageSignalAux);
 receivedVoltageSignal =  receivedVoltageSignalAux*sqrt(var(signal)/var(receivedVoltageSignalAux));
 
-
-rmpath(['..' filesep '..' filesep '..' filesep 'VLC_param' filesep]); 
-rmpath(['..' filesep '..' filesep '..' filesep 'VLC_param' filesep 'Utils' filesep]); 
-rmpath(['..' filesep '..' filesep  '..' filesep 'VLC_param' filesep 'LED Parameters' filesep]); 
 
 
