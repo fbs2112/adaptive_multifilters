@@ -18,7 +18,7 @@ numberOfSymbols = 2^numberOfBits;
 barGammaLin = 4*sqrt(5*noisePower);
 barGammaNonLin = (1:0.5:4)*barGammaLin;
 
-gamma = 1e-8;
+gamma = 1e-6;
 modulationIndexVector = [0.05 0.075 0.1];
 
 
@@ -168,8 +168,8 @@ for modulationIndex = 1:length(modulationIndexVector)
     end
 end
 
-save(['.' filesep 'results' filesep 'results_SMDTPU_VLC_01.mat'],'w4','e4','meanCountLin2','meanCountNonLin2');
+save(['.' filesep 'results' filesep 'results_SMDTPU_VLC_03.mat'],'w4','e4','meanCountLin2','meanCountNonLin2');
 
-rnpath(['..' filesep '..' filesep 'VLC_param' filesep]); 
-rnpath(['..' filesep '..' filesep 'VLC_param' filesep 'Utils' filesep]); 
+rmpath(['..' filesep '..' filesep 'VLC_param' filesep]); 
+rmpath(['..' filesep '..' filesep 'VLC_param' filesep 'Utils' filesep]); 
 rmpath(['..' filesep '..' filesep 'VLC_param' filesep 'LED Parameters' filesep]); 
