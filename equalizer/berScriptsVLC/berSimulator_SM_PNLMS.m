@@ -80,7 +80,7 @@ for SNRIndex = 1:length(SNR)
 end
 
 
-% save(['.' filesep 'results' filesep  filterFile '_BER.mat'],'SNR','ber');
+save(['.' filesep 'results' filesep  filterFile '_BER.mat'],'SNR','ber');
 
 rmpath(['..' filesep '.' filesep 'learningScripts' filesep 'VLC' filesep 'results']);
 rmpath(['..' filesep 'berParameters']);
