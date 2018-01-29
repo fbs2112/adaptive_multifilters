@@ -16,7 +16,7 @@ load VLC_param01.mat;
 load paramDFE_FF_VLC.mat;
 load param_feedforwardEq.mat;
 
-filterFile = 'results_SMPNLMS_VLC_02';
+filterFile = 'results_BEACON_VLC_02';
 load([filterFile '.mat']);
 
 modulationIndexVector = [0.05 0.075 0.1];

@@ -25,10 +25,9 @@ modulationIndexVector = [0.05 0.075 0.1];
 signalPower = 1;
 ber = zeros(length(SNR),size(e4,1),size(e4,2));
 
-blockLength = 1000;
-for SNRIndex = 7:length(SNR)
+for SNRIndex = 1:length(SNR)
     
-    for NIndex = 3:size(e4,1)
+    for NIndex = 1:size(e4,1)
         for modulationIndex = 1:size(e4,2)
             modulationIndex
             maxVoltage = VDC*(1+modulationIndexVector(modulationIndex));
