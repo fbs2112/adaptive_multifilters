@@ -44,6 +44,7 @@ for SNRIndex = 1:length(SNR)
                     deciInputData = bi2de(binaryInputData);
                     pilot = real(pammod(deciInputData,2^numberOfBits,0,'gray'));
                     
+                    pilot = pilot.*sqrt(signalPower/var(pilot));
                     xAux = VLC_channel(pilot, modulationIndexVector(modulationIndex), maxVoltage, VDC, db2pow(SNR(SNRIndex)));
                     
                     xAux = [zeros(feedforwardLength(FFIndex)-1,1);xAux];
