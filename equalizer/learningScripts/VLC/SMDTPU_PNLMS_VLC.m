@@ -78,7 +78,7 @@ for modulationIndex = 1:length(modulationIndexVector)
                     
                     pilot2 = pilot.*sqrt(signalPower/var(pilot));
 
-                    xAux = VLC_channel(pilot, modulationIndexVector(modulationIndex), maxVoltage, VDC, SNR);
+                    xAux = VLC_channel(pilot2, modulationIndexVector(modulationIndex), maxVoltage, VDC, SNR);
                     
                     xAux = [zeros(N(NIndex)-1,1);xAux];
 

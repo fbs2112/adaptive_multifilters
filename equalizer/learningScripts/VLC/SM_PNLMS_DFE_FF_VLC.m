@@ -12,6 +12,9 @@ addpath(['..' filesep '..' filesep 'VLC_param' filesep 'LED Parameters' filesep]
 load paramDFE_FF_VLC.mat;
 load VLC_param01.mat;
 
+load whiteLED_334-15_Param.mat;
+load whiteLED_334-15.mat;
+
 numberOfSymbols = 2^numberOfBits;
 modulationIndexVector = [0.05 0.075 0.1];
 
@@ -59,7 +62,7 @@ for modulationIndex = 1:length(modulationIndexVector)
 
                     pilot2 = pilot.*sqrt(signalPower/var(pilot));
 
-                    xAux = VLC_channel(pilot, modulationIndexVector(modulationIndex), maxVoltage, VDC, SNR);
+                    xAux = VLC_channel(pilot2, modulationIndexVector(modulationIndex), maxVoltage, VDC, SNR);
 
                     xAux = [zeros(feedforwardLength(FFIndex)-1,1);xAux];
 
