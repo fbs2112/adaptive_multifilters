@@ -22,7 +22,7 @@ load([filterFile '.mat']);
 
 modulationIndexVector = [0.05 0.075 0.1];
 
-ber = zeros(length(SNR),size(e4,1),size(e4,2),size(e4,3),size(e4,4));
+ber = zeros(length(SNR),size(e4,1),size(e4,2),size(e4,4),size(e4,3));
 
 for SNRIndex = 1:length(SNR)
     for FFIndex = 1:size(e4,1)
@@ -30,7 +30,7 @@ for SNRIndex = 1:length(SNR)
         for FBIndex = 1:size(e4,2)
             FBIndex
             
-            for modulationIndex = 1:size(e4,2)
+            for modulationIndex = 1:size(e4,4)
                 modulationIndex
                 maxVoltage = VDC*(1+modulationIndexVector(modulationIndex));
                 
@@ -109,7 +109,7 @@ for SNRIndex = 1:length(SNR)
                             berAux(index) = sum(sum(abs(binaryOutputData(delay+1:(blockLength/2) + delay,:) - binaryInputData(1:(blockLength/2),:))))./blockLength;
                         end
                         
-                        ber(SNRIndex,FFIndex,FBIndex,etaIndex,barGammaNonLinIndex) = mean(berAux);
+                        ber(SNRIndex,FFIndex,FBIndex,etaIndex,modulationIndex) = mean(berAux);
                     end
                 end
             end
