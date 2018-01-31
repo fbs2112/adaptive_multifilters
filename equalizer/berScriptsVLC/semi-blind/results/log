@@ -6,4 +6,7 @@ resultsSB_VLC_03_BER: resultados de BER para arquivo resultsSB_VLC_03;
 
 resultsSB_VLC_04_BER: resultados de BER para arquivo resultsSB_VLC_04;
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+
+resultsSBSMDTPU_VLC_01_BER: resultados de BER para arquivo resultsSBSMDTPU_VLC_01;
 
