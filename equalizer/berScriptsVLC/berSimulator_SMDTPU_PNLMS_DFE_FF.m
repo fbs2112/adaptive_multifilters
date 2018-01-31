@@ -24,6 +24,7 @@ load([filterFile '.mat']);
 
 modulationIndexVector = [0.05 0.075 0.1];
 
+
 ber = zeros(length(SNR),size(e4,1),size(e4,2),size(e4,3),size(w4{1,1},2));
 
 for SNRIndex = 1:length(SNR)
@@ -36,11 +37,12 @@ for SNRIndex = 1:length(SNR)
                 maxVoltage = VDC*(1+modulationIndexVector(modulationIndex));
                 
                 for barGammaNonLinIndex = 1:size(w4{1,1},2)
-                    equalyzerFilter = [];
+                    equalizerFilter = [];
                     berAux = zeros(monteCarloLoops,1);
                     equalizerFilter(:,1) = squeeze(w4{FFIndex,FBIndex,modulationIndex}{1,barGammaNonLinIndex}(:,end));
+                    barGammaNonLinIndex
                     for index = 1:monteCarloLoops
-                        index
+%                         index
                         equalizedSignal = zeros(numberOfSymbols,1);
                         
                         binaryInputData = randi([0,1],blockLength + 100,1);
@@ -116,8 +118,8 @@ for SNRIndex = 1:length(SNR)
     end
 end
 
-
-save(['.' filesep 'results' filesep  filterFile '_BER.mat'],'SNR','ber');
+% 
+% save(['.' filesep 'results' filesep  filterFile '_BER.mat'],'SNR','ber');
 
 rmpath(['..' filesep '.' filesep 'learningScripts' filesep 'VLC' filesep 'results']);
 rmpath(['..' filesep 'berParameters']);
