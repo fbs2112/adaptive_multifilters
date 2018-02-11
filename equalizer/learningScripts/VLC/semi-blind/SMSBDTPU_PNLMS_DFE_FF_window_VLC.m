@@ -27,17 +27,17 @@ w4 = cell(length(feedforwardLength),length(feedbackLength),length(eta),length(mo
 meanCountLin2 = cell(length(feedforwardLength),length(feedbackLength),length(eta),length(modulationIndexVector));
 meanCountNonLin2 = cell(length(feedforwardLength),length(feedbackLength),length(eta),length(modulationIndexVector));
 
-blindIt = zeros(maxIt,1,length(feedforwardLength),length(feedbackLength),length(eta),length(modulationIndexVector));
-blindIt2 = zeros(maxIt,1,length(feedforwardLength),length(feedbackLength),length(eta),length(modulationIndexVector));
+blindIt = zeros(maxIt,1,length(feedforwardLength),length(feedbackLength),length(barGammaNonLin),length(eta),length(modulationIndexVector));
+blindIt2 = zeros(maxIt,1,length(feedforwardLength),length(feedbackLength),length(barGammaNonLin),length(eta),length(modulationIndexVector));
 
 
 for modulationIndex = 1:length(modulationIndexVector)
     maxVoltage = VDC*(1+modulationIndexVector(modulationIndex));
-    for etaIndex = 1:length(eta)
+    for etaIndex = 1:1%length(eta)
 
-        for FFIndex = 1:length(feedforwardLength)
+        for FFIndex = 3:length(feedforwardLength)
             FFIndex
-            for FBIndex = 1:length(feedbackLength)
+            for FBIndex = 1:1%length(feedbackLength)
                 FBIndex
 
                 delayVector = feedforwardLength(FFIndex)+1;
@@ -138,9 +138,9 @@ for modulationIndex = 1:length(modulationIndexVector)
                                         d(k) = pamHardThreshold(y);
 
                                         if ~blindFlag
-                                            blindIt(index,delay,FFIndex,FBIndex,etaIndex,modulationIndex) = k;
+                                            blindIt(index,delay,FFIndex,FBIndex,barGammaNonLinIndex,etaIndex,modulationIndex) = k;
                                         elseif ~blindFlag 
-                                            blindIt2(index,delay,FFIndex,FBIndex,etaIndex,modulationIndex) = k;
+                                            blindIt2(index,delay,FFIndex,FBIndex,barGammaNonLinIndex,etaIndex,modulationIndex) = k;
                                         end
                                         blindFlag = 1;
 
@@ -205,7 +205,7 @@ for modulationIndex = 1:length(modulationIndexVector)
     
 end
 
-save(['.' filesep 'results' filesep 'resultsSBSMDTPU_VLC_02.mat'],'w4','e4','meanCountLin2','meanCountNonLin2','blindIt','blindIt2');
+save(['.' filesep 'results' filesep 'resultsSBSMDTPU_VLC_04.mat'],'w4','e4','meanCountLin2','meanCountNonLin2','blindIt','blindIt2');
 
 rmpath(['..' filesep '..' filesep '..' filesep 'VLC_param' filesep]); 
 rmpath(['..' filesep '..' filesep '..' filesep 'VLC_param' filesep 'Utils' filesep]); 
