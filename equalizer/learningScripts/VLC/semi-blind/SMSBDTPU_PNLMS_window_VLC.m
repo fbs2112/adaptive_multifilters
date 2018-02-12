@@ -28,8 +28,8 @@ e4 = cell(length(N),length(eta),length(modulationIndexVector));
 w4 = cell(length(N),length(eta),length(modulationIndexVector));
 meanCountLin2 = cell(length(N),length(eta),length(modulationIndexVector));
 meanCountNonLin2 = cell(length(N),length(eta),length(modulationIndexVector));
-blindIt = zeros(maxIt,1,length(N),length(barGammaNonLin),length(eta),length(modulationIndexVector));
-blindIt2 = zeros(maxIt,1,length(N),length(barGammaNonLin),length(eta),length(modulationIndexVector));
+blindIt = zeros(maxIt,1,length(barGammaNonLin),length(N),length(eta),length(modulationIndexVector));
+blindIt2 = zeros(maxIt,1,length(barGammaNonLin),length(N),length(eta),length(modulationIndexVector));
 
 for modulationIndex = 1:length(modulationIndexVector)
     maxVoltage = VDC*(1+modulationIndexVector(modulationIndex));
