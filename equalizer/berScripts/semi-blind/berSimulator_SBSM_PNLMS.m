@@ -102,7 +102,7 @@ for SNRIndex = 1:length(SNR)
 end
 
 
-% save(['.' filesep 'results' filesep  filterFile '_BER.mat'],'SNR','ber');
+save(['.' filesep 'results' filesep  filterFile '_BER.mat'],'SNR','ber');
 
 rmpath(['..' filesep '..' filesep 'learningScripts' filesep 'semi-blind' filesep 'results']);
 rmpath(['..' filesep '..' filesep 'berParameters']);

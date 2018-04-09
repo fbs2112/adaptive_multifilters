@@ -31,7 +31,7 @@ meanCountNonLin2 = cell(length(N),length(eta),length(modulationIndexVector));
 blindIt = zeros(maxIt,1,length(barGammaNonLin),length(N),length(eta),length(modulationIndexVector));
 blindIt2 = zeros(maxIt,1,length(barGammaNonLin),length(N),length(eta),length(modulationIndexVector));
 
-for modulationIndex = 1:length(modulationIndexVector)
+for modulationIndex = 2:length(modulationIndexVector)
     maxVoltage = VDC*(1+modulationIndexVector(modulationIndex));
     for etaIndex = 1:1%length(eta)
         for NIndex = 3:length(N)
@@ -46,7 +46,7 @@ for modulationIndex = 1:length(modulationIndexVector)
             meanCountLin = cell(length(delayVector),length(barGammaNonLin));
             meanCountNonLin = cell(length(delayVector),length(barGammaNonLin));
 
-            for barGammaNonLinIndex = 1:length(barGammaNonLin)
+            for barGammaNonLinIndex = 3:length(barGammaNonLin)
                 barGammaNonLinIndex
 
 
@@ -178,7 +178,7 @@ for modulationIndex = 1:length(modulationIndexVector)
     end
 end
 
-save(['.' filesep 'results' filesep 'resultsSBSMDTPU_VLC_03.mat'],'w4','e4','meanCountLin2','meanCountNonLin2','blindIt','blindIt2');
+% save(['.' filesep 'results' filesep 'resultsSBSMDTPU_VLC_03.mat'],'w4','e4','meanCountLin2','meanCountNonLin2','blindIt','blindIt2');
 
 rmpath(['..' filesep '..' filesep '..' filesep 'VLC_param' filesep]); 
 rmpath(['..' filesep '..' filesep '..' filesep 'VLC_param' filesep 'Utils' filesep]); 
