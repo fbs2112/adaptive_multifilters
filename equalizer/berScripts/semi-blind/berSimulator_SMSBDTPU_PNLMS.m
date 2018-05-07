@@ -20,13 +20,13 @@ ber = zeros(length(SNR),size(e4,1),size(e4,2),size(e4{3,1},2));
 
 for SNRIndex = 1:length(SNR)
     
-    for NIndex = 1:size(e4,1)
-        for etaIndex = 1:size(e4,2)
+    for NIndex = 3:size(e4,1)
+        for etaIndex = 1:1%size(e4,2)
             for barGammaNonLinIndex = 1:size(e4{3,1},2)
                 barGammaNonLinIndex
                 equalyzerFilter = [];
                 berAux = zeros(monteCarloLoops,1);
-                equalyzerFilter(:,1) = squeeze(w4{NIndex,etaIndex}{1,barGammaNonLinIndex}(:,4999));
+                equalyzerFilter(:,1) = squeeze(w4{NIndex,etaIndex}{1,barGammaNonLinIndex}(:,end));
                 
                 for index = 1:monteCarloLoops
                     equalyzedSignal = zeros(numberOfSymbols,1);
@@ -101,7 +101,7 @@ for SNRIndex = 1:length(SNR)
 end
 
 
-save(['.' filesep 'results' filesep  filterFile '_BER.mat'],'SNR','ber');
+save(['.' filesep 'results' filesep  filterFile '_2BER.mat'],'SNR','ber');
 
 rmpath(['..' filesep '..' filesep 'learningScripts' filesep 'semi-blind' filesep 'results']);
 rmpath(['..' filesep '..' filesep 'berParameters']);

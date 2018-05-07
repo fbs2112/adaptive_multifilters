@@ -4,7 +4,7 @@ SB_results02_BER: resultados para arquivo SB_results02;
 
 SB_results03_BER: resultados para arquivo SB_results03;
 
-SB_results04_BER: resultados para arquivo SB_results04  ;
+SB_results04_BER: resultados para arquivo SB_results04;
 
 SBDTPU_results01_BER: resultados para arquivo SBDTPU_results01;
 
@@ -12,3 +12,14 @@ SBDTPU_results02_BER: resultados para arquivo SBDTPU_results02;
 
 SBDTPU_results02_2_BER: resultados para arquivo SBDTPU_results02 com loops diminuidos;
 
+SB_results01_2BER: resultados para arquivo SB_results01 com filtro escolhido na última iteração;
+
+SB_results02_2BER: resultados para arquivo SB_results02 com filtro escolhido na última iteração;
+
+SB_results03_2BER: resultados para arquivo SB_results03 com filtro escolhido na última iteração;
+
+SB_results04_2BER: resultados para arquivo SB_results04 com filtro escolhido na última iteração;
+
+SBDTPU_results01_2BER: resultados para arquivo SBDTPU_results01 com filtro escolhido na última iteração;
+
+SBDTPU_results02_2BER: resultados para arquivo SBDTPU_results02 com filtro escolhido na última iteração;

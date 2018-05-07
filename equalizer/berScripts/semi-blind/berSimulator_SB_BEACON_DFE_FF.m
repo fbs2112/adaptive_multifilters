@@ -1,4 +1,4 @@
-%This scripts generates bit error rates using pre trained adaptive filters
+    %This scripts generates bit error rates using pre trained adaptive filters
 %as equalyzers
 
 clear;
@@ -18,9 +18,9 @@ load([filterFile '.mat']);
 ber = zeros(length(SNR),size(e4,1),size(e4,2),size(e4,3),size(e4{3,3},2));
 
 for SNRIndex = 1:length(SNR)
-    for FFIndex = 1:size(e4,1)
+    for FFIndex = 3:size(e4,1)
         FFIndex
-        for FBIndex = 1:size(e4,2)
+        for FBIndex = 1:1%size(e4,2)
             FBIndex
             for etaIndex = 1:size(e4,3)
                 for barGammaNonLinIndex = 1:size(e4{3,3},2)
@@ -130,7 +130,7 @@ for SNRIndex = 1:length(SNR)
 end
 
 
-save(['.' filesep 'results' filesep  filterFile '_BER.mat'],'SNR','ber');
+save(['.' filesep 'results' filesep  filterFile '_2BER.mat'],'SNR','ber');
 
 rmpath(['..' filesep '..' filesep 'learningScripts' filesep 'semi-blind' filesep 'results']);
 rmpath(['..' filesep '..' filesep 'berParameters']);
