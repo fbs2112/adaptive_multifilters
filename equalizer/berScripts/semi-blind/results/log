@@ -22,4 +22,4 @@ SB_results04_2BER: resultados para arquivo SB_results04 com filtro escolhido na 
 
 SBDTPU_results01_2BER: resultados para arquivo SBDTPU_results01 com filtro escolhido na última iteração;
 
-SBDTPU_results02_2BER: resultados para arquivo SBDTPU_results02 com filtro escolhido na última iteração;
+SBDTPU_results02_3BER: resultados para arquivo SBDTPU_results02 com filtro escolhido na última iteração;
