@@ -43,7 +43,7 @@ for NIndex = 3:length(N)
             countLin = zeros(globalLength,maxIt);
             countNonLin = zeros(globalLength,maxIt);
             countTotal = zeros(globalLength,maxIt);
-            wIndex = zeros(adapFiltLength(N(NIndex)),globalLength,maxIt);
+            wIndex = zeros(adapFiltLength(NIndex),globalLength,maxIt);
             e2 = zeros(globalLength,maxIt);
 
             for index = 1:maxIt
@@ -52,11 +52,11 @@ for NIndex = 3:length(N)
                 e = zeros(globalLength,1);
                 muLin = zeros(globalLength,1);
                 muNonLin = zeros(globalLength,1);
-                G = zeros(adapFiltLength(N(NIndex)),adapFiltLength(NIndex),globalLength);
+                G = zeros(adapFiltLength(NIndex),adapFiltLength(NIndex),globalLength);
 
-                G1 = zeros(adapFiltLength(N(NIndex)),adapFiltLength(NIndex),globalLength);
+                G1 = zeros(adapFiltLength(NIndex),adapFiltLength(NIndex),globalLength);
 
-                G2 = zeros(adapFiltLength(N(NIndex)),adapFiltLength(NIndex),globalLength);
+                G2 = zeros(adapFiltLength(NIndex),adapFiltLength(NIndex),globalLength);
 
                 xFiltered = zeros(globalLength,1);
                 xLin = zeros(N(NIndex),globalLength);
