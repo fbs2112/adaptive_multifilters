@@ -2,3 +2,7 @@ results_SMDTPU_01_BER: resultados de BER para arquivo results_SMDTPU_01;
 
 results_SMDTPU_02_BER: resultados de BER para arquivo results_SMDTPU_02;
 
+results_SMDTPU_03_BER: resultados de BER para arquivo results_SMDTPU_03;
+
+results_SMDTPU_04_BER: resultados de BER para arquivo results_SMDTPU_04;
+
