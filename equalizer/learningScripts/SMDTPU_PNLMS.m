@@ -21,8 +21,8 @@ meanCountNonLin2 = cell(length(N),1);
 
 for NIndex = 3:length(N)
     
-    CLin = diag([ones(N(NIndex),1).' zeros(adapFiltLength(N(NIndex)) - N(NIndex),1).'].');
-    CNonLin = diag([zeros(N(NIndex),1).' ones(adapFiltLength(N(NIndex)) - N(NIndex),1).'].');
+    CLin = diag([ones(N(NIndex),1).' zeros(adapFiltLength(NIndex) - N(NIndex),1).'].');
+    CNonLin = diag([zeros(N(NIndex),1).' ones(adapFiltLength(NIndex) - N(NIndex),1).'].');
     
     delayVector = N(NIndex)+1;%adapFiltLength + 10;
     delayVector2 = [N(NIndex)+1 N(NIndex)-2];
@@ -52,11 +52,11 @@ for NIndex = 3:length(N)
                 e = zeros(globalLength,1);
                 muLin = zeros(globalLength,1);
                 muNonLin = zeros(globalLength,1);
-                G = zeros(adapFiltLength(N(NIndex)),adapFiltLength(N(NIndex)),globalLength);
+                G = zeros(adapFiltLength(N(NIndex)),adapFiltLength(NIndex),globalLength);
 
-                G1 = zeros(adapFiltLength(N(NIndex)),adapFiltLength(N(NIndex)),globalLength);
+                G1 = zeros(adapFiltLength(N(NIndex)),adapFiltLength(NIndex),globalLength);
 
-                G2 = zeros(adapFiltLength(N(NIndex)),adapFiltLength(N(NIndex)),globalLength);
+                G2 = zeros(adapFiltLength(N(NIndex)),adapFiltLength(NIndex),globalLength);
 
                 xFiltered = zeros(globalLength,1);
                 xLin = zeros(N(NIndex),globalLength);
@@ -138,7 +138,7 @@ for NIndex = 3:length(N)
 
                     if absoluteValueError > barGammaLin
                         muLin(k) = 1 - barGammaLin/absoluteValueError;
-                        G1(:,:,k) = diag(((1 - kappa*muLin(k))/adapFiltLength(N(NIndex))) + (kappa*muLin(k)*abs(w1(:,k))/norm(w1(:,k),1)));
+                        G1(:,:,k) = diag(((1 - kappa*muLin(k))/adapFiltLength(NIndex)) + (kappa*muLin(k)*abs(w1(:,k))/norm(w1(:,k),1)));
 
                         w1(:,k+1) = w1(:,k) + muLin(k) * CLin*G1(:,:,k)*xAP*((xAP'*CLin*G1(:,:,k)*xAP+gamma*eye(1))\eye(1))*conj(e(k));
                         countLin(k,index) = 1;
@@ -150,7 +150,7 @@ for NIndex = 3:length(N)
                     if absoluteValueError > barGammaNonLin(barGammaNonLinIndex)
                         muNonLin(k) = 1 - barGammaNonLin(barGammaNonLinIndex)/absoluteValueError;
 
-                        G2(:,:,k) = diag(((1 - kappa*muNonLin(k))/adapFiltLength(N(NIndex))) + (kappa*muNonLin(k)*abs(w2(:,k))/norm(w2(:,k),1)));
+                        G2(:,:,k) = diag(((1 - kappa*muNonLin(k))/adapFiltLength(NIndex)) + (kappa*muNonLin(k)*abs(w2(:,k))/norm(w2(:,k),1)));
 
                         w2(:,k+1) = w2(:,k) + muNonLin(k)*CNonLin*G2(:,:,k)*xAP*((xAP'*CNonLin*G2(:,:,k)*xAP+gamma*eye(1))\eye(1))*conj(e(k));
                         countNonLin(k,index) = 1;
