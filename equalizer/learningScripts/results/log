@@ -12,3 +12,7 @@ results_SMDTPU_01: resultados para SM_DTPU_PNLMS com canal antigo;
 
 results_SMDTPU_02: resultados para SM_DTPU_PNLMS com canal antigo e para DFE_FF;
 
+results_SMDTPU_03: resultados para SM_DTPU_PNLMS memória maior;
+
+results_SMDTPU_04: resultados para SM_DTPU_PNLMS com memória maior e para DFE_FF;
+
