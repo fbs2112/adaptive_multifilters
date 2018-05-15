@@ -188,6 +188,6 @@ for NIndex = 3:length(N)
     e4{NIndex} = e3;
 end
 
-save(['.' filesep 'results' filesep 'results_SMDTPU_01.mat'],'w4','e4','meanCountLin2','meanCountNonLin2');
+save(['.' filesep 'results' filesep 'results_SMDTPU_03.mat'],'w4','e4','meanCountLin2','meanCountNonLin2');
 
 rmpath(['..' filesep 'simParameters' filesep]);

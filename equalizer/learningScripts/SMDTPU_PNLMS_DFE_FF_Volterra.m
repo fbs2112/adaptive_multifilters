@@ -20,7 +20,7 @@ meanCountNonLin2 = cell(length(feedforwardLength),length(feedbackLength));
 
 for FFIndex = 3:length(feedforwardLength)
     FFIndex
-    for FBIndex = 1:length(feedbackLength)
+    for FBIndex = 1:1%length(feedbackLength)
         FBIndex
         %         delayVector = 1:feedforwardLength+length(h);%adapFiltLength + 10;
         
@@ -214,7 +214,7 @@ for FFIndex = 3:length(feedforwardLength)
     end
 end
 
-save(['.' filesep 'results' filesep 'results_SMDTPU_02.mat'],'w4','e4','meanCountLin2','meanCountNonLin2');
+save(['.' filesep 'results' filesep 'results_SMDTPU_04.mat'],'w4','e4','meanCountLin2','meanCountNonLin2');
 
 rmpath(['..' filesep 'simParameters' filesep]);
 
