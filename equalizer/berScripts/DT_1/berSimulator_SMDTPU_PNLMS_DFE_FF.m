@@ -9,7 +9,7 @@ addpath(['..' filesep '..' filesep 'learningScripts' filesep 'results']);
 addpath(['..' filesep '..' filesep 'berParameters']);
 addpath(['..' filesep '..' filesep 'simParameters']);
 
-filterFile = 'results_SMDTPU_02';
+filterFile = 'results_SMDTPU_04';
 
 load paramDFE_FF_DT;
 load param_feedforwardEq.mat;
@@ -20,12 +20,12 @@ ber = zeros(length(SNR),size(e4,1),size(e4,2),size(e4{3,3},2));
 for SNRIndex = 1:length(SNR)
     for FFIndex = 3:size(e4,1)
         FFIndex
-        for FBIndex = 1:size(e4,2)
+        for FBIndex = 1:1%size(e4,2)
             FBIndex
             for barGammaNonLinIndex = 1:size(e4{3,3},2)
                 equalyzerFilter = [];
                 berAux = zeros(monteCarloLoops,1);
-                equalyzerFilter(:,1) = squeeze(w4{FFIndex,FBIndex}{1,barGammaNonLinIndex}(:,4999));
+                equalyzerFilter(:,1) = squeeze(w4{FFIndex,FBIndex}{1,barGammaNonLinIndex}(:,end));
                 for index = 1:monteCarloLoops
                     index
                     equalyzedSignal = zeros(numberOfSymbols,1);

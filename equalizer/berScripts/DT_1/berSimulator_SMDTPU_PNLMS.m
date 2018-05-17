@@ -26,7 +26,7 @@ for SNRIndex = 1:length(SNR)
                 barGammaNonLinIndex
                 equalyzerFilter = [];
                 berAux = zeros(monteCarloLoops,1);
-                equalyzerFilter(:,1) = squeeze(w4{NIndex,etaIndex}{1,barGammaNonLinIndex}(:,4999));
+                equalyzerFilter(:,1) = squeeze(w4{NIndex,etaIndex}{1,barGammaNonLinIndex}(:,end));
                 
                 for index = 1:monteCarloLoops
                     equalyzedSignal = zeros(numberOfSymbols,1);
